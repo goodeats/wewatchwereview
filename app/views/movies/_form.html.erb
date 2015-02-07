@@ -1,0 +1,16 @@
+<%= form_for @movie do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :poster %>
+    <%= f.text_area :poster %>
+
+    <%= f.label :rotten_tomatoes_score, 'Rotten Tomatoes Score' %>
+    <%= f.text_area :rotten_tomatoes_score %>
+
+
+    <%= f.label :genre %>
+    <%= f.text_area :genre %>
+
+    <%= f.submit %>
+<% end %>
