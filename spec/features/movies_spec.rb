@@ -31,7 +31,7 @@ RSpec.feature 'Display Movies' do
     visit "/movies/#{movie.id}"
 
     expect(page.find('h1')).to have_content 'Forrest Gump'
-    expect(page.find('div')).to have_content "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg"
+    expect(page.find('div')).not_to have_content "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg"
     expect(page.find('div')).to have_content '71%'
     expect(page.find('div')).to have_content 'Drama'
   end
