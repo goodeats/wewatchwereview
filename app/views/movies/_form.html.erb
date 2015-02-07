@@ -1,16 +1,29 @@
 <%= form_for @movie do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
 
-    <%= f.label :poster %>
-    <%= f.text_area :poster %>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
 
-    <%= f.label :rotten_tomatoes_score, 'Rotten Tomatoes Score' %>
-    <%= f.text_area :rotten_tomatoes_score %>
+      <ul>
+      <% @movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :poster %>
+  <%= f.text_field :poster %>
+
+  <%= f.label :rotten_tomatoes_score, 'Rotten Tomatoes Score' %>
+  <%= f.text_field :rotten_tomatoes_score %>
 
 
-    <%= f.label :genre %>
-    <%= f.text_area :genre %>
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
 
-    <%= f.submit %>
+  <%= f.submit %>
 <% end %>
