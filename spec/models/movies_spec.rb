@@ -6,16 +6,8 @@ RSpec.describe Movie do
       expect(Movie.create()).to be_a Movie
     end
 
-    # it 'is invalid without a body' do
-    #   expect(Movie.create(title: 'My title')).not_to be_valid
-    # end
-
-    # it 'is invalid without a title' do
-    #   expect(Movie.create(body: 'My body')).not_to be_valid
-    # end
-
-    # it 'is valid with a body and a title' do
-    #   expect(Movie.create(title: 'My title', body: 'My body')).to be_valid
-    # end
+    it 'is valid with all requirements' do
+      expect(Movie.create!(title: 'Forrest Gump', poster: "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg", rotten_tomatoes_score: '71%', genre: 'Drama')).to be_valid
+    end
   end
 end

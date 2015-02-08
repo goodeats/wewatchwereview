@@ -13,14 +13,6 @@ RSpec.feature 'Display Movies' do
     expect(page).to have_selector 'div', count: 3
   end
 
-  scenario 'Go to the new movie form from the index' do
-    visit '/movies'
-
-    click_on 'Add Movie'
-
-    expect(page).to ~go to the movies/new
-  end
-
   scenario 'Add a movie to the index' do
     visit '/movies/new'
 
@@ -44,4 +36,20 @@ RSpec.feature 'Display Movies' do
     expect(page.find('div')).to have_content 'Drama'
   end
 
+  scenario 'Update a movie' do
+    movie = Movie.create!(title: 'Forrest Gump', poster: "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg", rotten_tomatoes_score: '71%', genre: 'Drama')
+
+    visit "movies/#{movie.id}/edit"
+
+    fill_in 'Title', with: 'The Interview'
+    fill_in 'Poster', with: "http://content8.flixster.com/movie/11/17/86/11178658_det.jpg"
+    fill_in 'Rotten Tomatoes Score', with: '54%'
+    fill_in 'Genre', with: 'Comedy'
+    click_on 'Update Movie'
+
+    expect(page).to have_content(/success/)#i)
+    expect(page.find('h1')).to have_content 'The Interview'
+    expect(page).to have_content '54%'
+    expect(page).to have_content 'Comedy'
+  end
 end
