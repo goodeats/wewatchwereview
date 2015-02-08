@@ -161,4 +161,19 @@ RSpec.describe MoviesController do
     end
   end
 
+  describe 'DELETE destroy' do
+    it 'destroys the requested movie' do
+      movie = Movie.create!(valid_attributes)
+      expect {
+        delete :destroy, id: movie
+      }.to change(Movie, :count).by(-1)
+    end
+
+    it 'redirects to the movies list' do
+      movie = Movie.create!(valid_attributes)
+      delete :destroy, id: movie
+      expect(response).to redirect_to movies_url
+    end
+  end
+
 end

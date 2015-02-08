@@ -47,9 +47,20 @@ RSpec.feature 'Display Movies' do
     fill_in 'Genre', with: 'Comedy'
     click_on 'Update Movie'
 
-    expect(page).to have_content(/success/)#i)
+    expect(page).to have_content(/success/i)
     expect(page.find('h1')).to have_content 'The Interview'
     expect(page).to have_content '54%'
     expect(page).to have_content 'Comedy'
   end
+
+  scenario 'Delete a movie' do
+    movie = Movie.create!(title: 'Forrest Gump', poster: "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg", rotten_tomatoes_score: '71%', genre: 'Drama')
+
+    visit "movies/#{movie.id}/edit"
+
+    click_on 'Delete Movie'
+
+    expect(page).to have_content(/success/i)
+  end
+
 end
