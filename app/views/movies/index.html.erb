@@ -3,7 +3,7 @@
 <% @movies.each do |movie| %>
   <div>
     <p><%= movie.title %></p>
-    <p><%= link_to image_tag(movie.poster), movie.poster %></p>
+    <p><%= link_to image_tag(movie.poster), movie %></p>
     <p><%= movie.rotten_tomatoes_score %></p>
     <p><%= movie.genre %></p>
   </div>

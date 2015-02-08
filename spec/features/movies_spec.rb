@@ -13,6 +13,14 @@ RSpec.feature 'Display Movies' do
     expect(page).to have_selector 'div', count: 3
   end
 
+  scenario 'Go to the new movie form from the index' do
+    visit '/movies'
+
+    click_on 'Add Movie'
+
+    expect(page).to ~go to the movies/new
+  end
+
   scenario 'Add a movie to the index' do
     visit '/movies/new'
 
