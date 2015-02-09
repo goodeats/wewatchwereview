@@ -18,4 +18,23 @@ RSpec.feature 'Display Reviews' do
     expect(page).to have_selector 'div', count: 2
   end
 
+  scenario 'Add a review to a movie' do
+    visit '/movies/#{movie.id}/reviews/new'
+
+    fill_in 'Title', with: 'Lt. Dan!'
+    fill_in 'body', with: "stole every scene... with no legs!"
+    fill_in 'Rating', with: '5'
+    fill_in 'recommendation', with: "watch this for Gary Sinese's character"
+    fill_in 'spoiler?', with: true
+    click_on 'Create Review'
+
+    expect(page).to have_content(/success/)
+    expect(page).to have_content 'Reviews'
+    expect(page).to have_content(/Best/)
+    expect(page).to have_content(/hype/)
+    expect(page).to have_content(/Danbody/)
+    expect(page).to have_selector 'div', count: 3
+  end
+
+
 end

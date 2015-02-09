@@ -1,0 +1,14 @@
+<div><%= link_to 'Back', movie_path(@movie.id) %></div>
+<div><%= link_to 'Edit', movie_review_path(@movie, @review) %></div>
+<div><%= link_to 'New Review', new_movie_review_path(@movie) %></div>
+
+<h1>Show this review here</h1>
+
+<%= flash[:notice] %>
+<div>
+  <h2><%= @review.title %></h2>
+  <p><%= @review.body %></p>
+  <p><%= @review.rating %></p>
+  <p><%= @review.recommendation %></p>
+  <p><%= @review.spoiler? %></p>
+</div>

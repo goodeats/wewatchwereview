@@ -5,9 +5,9 @@ RSpec.describe 'routes for reviews' do
     expect(get('/reviews')).to route_to('reviews#index')
   end
 
-  # it 'routes GET /reviews/new to the reviews controller' do
-  #   expect(get('/reviews/new')).to route_to('reviews#new')
-  # end
+  it 'routes GET movies/:movie_id/reviews/new to the reviews controller' do
+    expect(get('/movies/1/reviews/new')).to route_to('reviews#new')
+  end
 
   # it 'routes GET /reviews/new to the reviews controller' do
   #   expect(get('/reviews/new')).to route_to('reviews#new')

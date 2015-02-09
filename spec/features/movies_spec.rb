@@ -37,6 +37,7 @@ RSpec.feature 'Display Movies' do
     expect(page.find('div')).not_to have_content "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg"
     expect(page.find('div')).to have_content '71%'
     expect(page.find('div')).to have_content 'Drama'
+    expect(page).to have_content('New Review')
   end
 
   scenario 'Update a movie' do
