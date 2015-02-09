@@ -1,7 +1,10 @@
 require 'rails_helper'
 
+Movie.destroy_all
+
 RSpec.feature 'Display Movies' do
   scenario 'List all movies' do
+
     Movie.create!(title: 'Forrest Gump', poster: "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg", rotten_tomatoes_score: '71%', genre: 'Drama')
     Movie.create!(title: 'Anchorman', poster: "http://content7.flixster.com/movie/11/16/97/11169773_det.jpg", rotten_tomatoes_score: '66%', genre: 'Comedy')
     Movie.create!(title: 'John Wick', poster: "http://content8.flixster.com/movie/11/18/08/11180842_det.jpg", rotten_tomatoes_score: '83%', genre: 'Action')

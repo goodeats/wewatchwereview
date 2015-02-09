@@ -1,0 +1,9 @@
+<h1>Movie Reviews</h1>
+
+<% @reviews.each do |review| %>
+  <div>
+    <p><%= link_to review.title, review_path(review.id) %></p>
+  </div>
+<% end %>
+
+<%= link_to 'List of Movies', movies_path %>

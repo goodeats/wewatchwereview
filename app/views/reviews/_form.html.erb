@@ -1,0 +1,25 @@
+<%= form_for([@movie, @movie.reviews.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :rating %><br>
+    <%= f.text_area :rating %>
+  </p>
+  <p>
+    <%= f.label :recommendation %><br>
+    <%= f.text_area :recommendation %>
+  </p>
+  <p>
+    <%= f.label :spoiler? %><br>
+    <%= f.text_area :spoiler? %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
