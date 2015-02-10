@@ -6,6 +6,6 @@ class Review < ActiveRecord::Base
   validates :body, presence: :true
   validates :rating, presence: :true
   validates :recommendation, presence: :true
-  validates :spoiler?, :inclusion => {:in => [true, false]}
+  #validates :spoiler?, :inclusion => {:in => [true, false]}
 
 end

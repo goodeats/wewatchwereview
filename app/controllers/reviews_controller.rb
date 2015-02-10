@@ -6,7 +6,20 @@ class ReviewsController < ApplicationController
 
   def new
     @movie = Movie.find(params[:movie_id])
-    @review = @movie.reviews.new
+    @review = Review.new
+  end
+
+  def create
+    @movie = Movie.find(params[:movie_id])
+    @review = @movie.reviews.create(review_params)
+
+    if @review.save
+      flash[:notice] = 'Review successfully created.'
+      redirect_to movie_path(@movie)
+    else
+      flash[:notice] = 'Review not successfully created.'
+      render :new
+    end
   end
 
   def show
@@ -14,30 +27,20 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
-  def create
-    @movie = Movie.find(params[:movie_id])
-    @review = @movie.reviews.new
-    if @movie.save
-      flash[:notice] = 'Review successfully created.'
-      redirect_to movie_path(@movie)
-    else
-      render :new
-    end
-  end
-
   def edit
     @movie = Movie.find(params[:movie_id])
-    @review = Review.find(params[:id])
+    review = @movie.reviews.create(review_params)
   end
 
   def update
     @movie = Movie.find(params[:id])
-    @review = Review.find(review_params)
+    @review = @movie.reviews.create(review_params)
 
-    if @movie.id.reviews.update_attributes(movie_params)
+    if @review.update_attributes(movie_params)
       flash[:notice] = 'Movie successfully updated.'
       redirect_to movie_review_path(@movie)
     else
+      flash[:notice] = 'Movie not successfully updated.'
       render :edit
     end
   end

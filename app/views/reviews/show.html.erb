@@ -12,3 +12,5 @@
   <p><%= @review.recommendation %></p>
   <p><%= @review.spoiler? %></p>
 </div>
+
+<%= button_to 'Delete Review', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -32,7 +32,7 @@ RSpec.feature 'Display Reviews' do
     expect(page).to have_content 'Reviews'
     expect(page).to have_content(/Best/)
     expect(page).to have_content(/hype/)
-    expect(page).to have_content(/Danbody/)
+    expect(page).to have_content(/Danbod/)
     expect(page).to have_selector 'div', count: 3
   end
 
