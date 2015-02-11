@@ -1,6 +1,11 @@
 <div><%= link_to 'Back', movie_path(@movie.id) %></div>
-<div><%= link_to 'Edit', edit_movie_review_path(@movie, @review) %></div>
 <div><%= link_to 'New Review', new_movie_review_path(@movie) %></div>
+
+<% if @review.user == current_user %>
+  <div><%= link_to 'Edit', edit_movie_review_path(@movie, @review) %></div>
+  <%= button_to 'Delete Review', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
 
 <h1>Show this review here</h1>
 
@@ -13,5 +18,3 @@
   <p><%= @review.recommendation %></p>
   <p><%= @review.spoiler? %></p>
 </div>
-
-<%= button_to 'Delete Review', movie_review_path(@movie, @review), method: :delete, data: { confirm: 'Are you sure?' } %>
