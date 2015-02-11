@@ -1,11 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-Movie.destroy_all
+# Get all the tables, except the table for migrations
+tables = ActiveRecord::Base.connection.tables - ['schema_migrations']
+tables.each do |table|
+  # delete all data from the table
+  ActiveRecord::Base.connection.execute "DELETE FROM #{table}"
+  # reset the primary key sequence for this table, start id column at 1
+  ActiveRecord::Base.connection.reset_pk_sequence!("#{table}")
+end
 
 m1 = Movie.create!(title: 'Forrest Gump', poster: "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg", rotten_tomatoes_score: '71%', genre: 'Drama')
 m2 = Movie.create!(title: 'Anchorman', poster: "http://content7.flixster.com/movie/11/16/97/11169773_det.jpg", rotten_tomatoes_score: '66%', genre: 'Comedy')

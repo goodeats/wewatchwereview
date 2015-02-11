@@ -7,6 +7,7 @@
 <%= flash[:notice] %>
 <div>
   <h2><%= @review.title %></h2>
+  <h3><%= @review.user.name %></h3>
   <p><%= @review.body %></p>
   <p><%= @review.rating %></p>
   <p><%= @review.recommendation %></p>

@@ -1,3 +1,5 @@
+require 'byebug'
+
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
@@ -13,6 +15,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    #binding.byebug
   end
 
   def create

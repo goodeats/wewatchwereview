@@ -1,6 +1,9 @@
+require 'byebug'
+
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @reviews = Review.all
@@ -8,6 +11,7 @@ class ReviewsController < ApplicationController
 
   def new
     @movie = Movie.find(params[:movie_id])
+
     @review = Review.new
   end
 
@@ -27,6 +31,7 @@ class ReviewsController < ApplicationController
   def show
     @movie = Movie.find(params[:movie_id])
     @review = Review.find(params[:id])
+    @review.user = current_user
   end
 
   def edit
@@ -62,6 +67,11 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:title, :body, :rating, :recommendation, :spoiler?)
+  end
+
+  def correct_user
+    @review = current_user.reviews.find_by(id: params[:id])
+    redirect_to reviews_path, notice: "Not authorized to edit this review" if @review.nil?
   end
 
 end
