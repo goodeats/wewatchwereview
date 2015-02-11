@@ -12,7 +12,7 @@
 <h2>Reviews for this movie:</h2>
 <% @movie.reviews.each do |review| %>
   <p>
-    <%= link_to review.title, movie_review_path(@movie, review) %>
+    <%= link_to review.title, movie_review_path(@movie, review) %> <%= review.user.name %>
   </p>
 <% end %>
 
