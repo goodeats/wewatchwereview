@@ -7,10 +7,30 @@
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </p>
+
+
   <p>
-    <%= f.label :rating %><br>
-    <%= f.text_area :rating %>
+    <div class="btn-group" data-toggle="buttons-radio">
+      <%= f.label :rating %><br>
+      <%= f.radio_button :rating, "ABC", :id=>"first" %>
+      <label for="first" class="btn btn-primary">1</label>
+
+      <%= f.radio_button :rating, "PQR", :id=>"second" %>
+      <label for="second" class="btn btn-primary">2</label>
+
+      <%= f.radio_button :rating, "MNO", :id=>"third" %>
+      <label for="third" class="btn btn-primary">3</label>
+
+      <%= f.radio_button :rating, "MNO", :id=>"fourth" %>
+      <label for="fourth" class="btn btn-primary">4</label>
+
+      <%= f.radio_button :rating, "MNO", :id=>"fifth" %>
+      <label for="fifth" class="btn btn-primary">5</label>
+
+    </div>
   </p>
+
+
   <p>
     <%= f.label :recommendation %><br>
     <%= f.text_area :recommendation %>
