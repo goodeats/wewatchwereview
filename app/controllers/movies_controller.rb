@@ -3,7 +3,7 @@ require 'byebug'
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  #before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @movies = Movie.all
@@ -15,7 +15,6 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
-    #binding.byebug
   end
 
   def create
@@ -59,4 +58,10 @@ class MoviesController < ApplicationController
     def movie_params
       params.require(:movie).permit(:title, :poster, :rotten_tomatoes_score, :genre)
     end
+
+    def correct_user
+      @movie = current_user.movies.find_by(id: params[:id])
+      redirect_to movies_path, notice: "Not authorized to edit this movie" if @movie.nil?
+    end
+
 end

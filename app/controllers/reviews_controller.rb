@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
   def new
     @movie = Movie.find(params[:movie_id])
     @review = Review.new
-    #@review.user = current_user
   end
 
   def create
@@ -31,8 +30,6 @@ class ReviewsController < ApplicationController
   def show
     @movie = Movie.find(params[:movie_id])
     @review = Review.find(params[:id])
-    #binding.byebug
-    #@review.user = current_user
   end
 
   def edit
