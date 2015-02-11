@@ -3,41 +3,41 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
-  <p>
+
+  <div class="form-group">
     <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
+    <%= f.text_area :body, class: "form-control", rows: '3', placeholder: "Write your review here" %>
+  </div>
 
 
   <p>
     <div class="btn-group" data-toggle="buttons-radio">
       <%= f.label :rating %><br>
-      <%= f.radio_button :rating, "ABC", :id=>"first" %>
+      <%= f.radio_button :rating, '1', :id=>"first" %>
       <label for="first" class="btn btn-primary">1</label>
 
-      <%= f.radio_button :rating, "PQR", :id=>"second" %>
+      <%= f.radio_button :rating, '2', :id=>"second" %>
       <label for="second" class="btn btn-primary">2</label>
 
-      <%= f.radio_button :rating, "MNO", :id=>"third" %>
+      <%= f.radio_button :rating, '3', :id=>"third" %>
       <label for="third" class="btn btn-primary">3</label>
 
-      <%= f.radio_button :rating, "MNO", :id=>"fourth" %>
+      <%= f.radio_button :rating, '4', :id=>"fourth" %>
       <label for="fourth" class="btn btn-primary">4</label>
 
-      <%= f.radio_button :rating, "MNO", :id=>"fifth" %>
+      <%= f.radio_button :rating, '5', :id=>"fifth" %>
       <label for="fifth" class="btn btn-primary">5</label>
-
     </div>
   </p>
 
 
   <p>
-    <%= f.label :recommendation %><br>
+    <%= f.label "See this movie if..." %><br>
     <%= f.text_area :recommendation %>
   </p>
   <p>
-    <%= f.label :spoiler? %><br>
-    <%= f.check_box :spoiler?, value: true %>
+    <%= f.label :spoiler %><br>
+    <%= f.check_box :spoiler, value: true %>
   </p>
   <p>
     <%= f.submit %>

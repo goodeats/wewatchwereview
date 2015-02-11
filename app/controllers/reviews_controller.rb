@@ -18,6 +18,9 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @review = @movie.reviews.create(review_params)
     @review.user = current_user
+
+
+
     if @review.save
       flash[:notice] = 'Review successfully created.'
       redirect_to movie_path(@movie)
@@ -64,7 +67,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:title, :body, :rating, :recommendation, :spoiler?)
+    params.require(:review).permit(:title, :body, :rating, :recommendation, :spoiler)
   end
 
   def correct_user

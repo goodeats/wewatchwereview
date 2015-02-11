@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150210224248) do
     t.string  "body"
     t.integer "rating"
     t.string  "recommendation"
-    t.boolean "spoiler?"
+    t.boolean "spoiler"
     t.integer "movie_id"
     t.integer "user_id"
   end

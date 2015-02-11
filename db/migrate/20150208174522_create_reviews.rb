@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration
       t.string :body
       t.integer :rating
       t.string :recommendation
-      t.boolean :spoiler?
+      t.boolean :spoiler
     end
   end
 end

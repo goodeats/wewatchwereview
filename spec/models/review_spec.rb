@@ -7,7 +7,7 @@ RSpec.describe Review do
     end
 
     it 'is valid with all requirements' do
-      expect(Review.create!(title: "Best movie everrr", body: "...and that's all I have to say about that", rating: 5, recommendation: "yes", spoiler?: false)).to be_valid
+      expect(Review.create!(title: "Best movie everrr", body: "...and that's all I have to say about that", rating: 5, recommendation: "yes", spoiler: false)).to be_valid
     end
   end
 end

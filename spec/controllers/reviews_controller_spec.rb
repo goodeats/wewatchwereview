@@ -4,7 +4,7 @@ Movie.destroy_all
 
 RSpec.describe ReviewsController do
   let(:valid_attributes) {
-    { title: "Best movie everrr", body: "...and that's all I have to say about that", rating: 5, recommendation: "yes", spoiler?: false }
+    { title: "Best movie everrr", body: "...and that's all I have to say about that", rating: 5, recommendation: "yes", spoiler: false }
   }
 
   movie = Movie.create!(title: 'Forrest Gump', poster: "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg", rotten_tomatoes_score: '71%', genre: 'Drama')

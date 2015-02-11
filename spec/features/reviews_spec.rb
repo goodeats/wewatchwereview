@@ -7,8 +7,8 @@ RSpec.feature 'Display Reviews' do
 
     movie = Movie.create!(title: 'Forrest Gump', poster: "http://content7.flixster.com/movie/11/17/36/11173677_det.jpg", rotten_tomatoes_score: '71%', genre: 'Drama')
 
-    movie.reviews.create!(title: "Best movie everrr", body: "...and that's all I have to say about that", rating: 5, recommendation: "yes", spoiler?: false)
-    movie.reviews.create!(title: "I don't see the hype", body: "he learns to walk", rating: 2, recommendation: "no", spoiler?: true)
+    movie.reviews.create!(title: "Best movie everrr", body: "...and that's all I have to say about that", rating: 5, recommendation: "yes", spoiler: false)
+    movie.reviews.create!(title: "I don't see the hype", body: "he learns to walk", rating: 2, recommendation: "no", spoiler: true)
 
     visit "/reviews"
 
@@ -25,7 +25,7 @@ RSpec.feature 'Display Reviews' do
     fill_in 'body', with: "stole every scene... with no legs!"
     fill_in 'Rating', with: '5'
     fill_in 'recommendation', with: "watch this for Gary Sinese's character"
-    fill_in 'spoiler?', with: true
+    fill_in 'spoiler', with: true
     click_on 'Create Review'
 
     expect(page).to have_content(/success/)
