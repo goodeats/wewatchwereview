@@ -10,11 +10,19 @@
 <h1>Show this review here</h1>
 
 <%= flash[:notice] %>
-<div>
-  <h2><%= @review.title %></h2>
-  <h3><%= @review.user.name %></h3>
-  <p><%= @review.body %></p>
-  <p><%= @review.rating %></p>
-  <p><%= @review.recommendation %></p>
-  <p><%= @review.spoiler %></p>
+<div class = "row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <h2><%= @review.title %></h2>
+      </div>
+      <div class="panel-body">
+        <h3><%= @review.user.name %></h3>
+        <p><%= @review.body %></p>
+        <p><%= @review.rating %></p>
+        <p><%= @review.recommendation %></p>
+        <p><%= @review.spoiler %></p>
+      </div>
+    </div>
+  </div>
 </div>
