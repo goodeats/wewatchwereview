@@ -1,5 +1,4 @@
 require 'byebug'
-
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
@@ -38,13 +37,14 @@ class ReviewsController < ApplicationController
   def edit
     @movie = Movie.find(params[:movie_id])
     review = @movie.reviews.create(review_params)
+    binding.byebug
   end
 
   def update
     @movie = Movie.find(params[:id])
     @review = @movie.reviews.create(review_params)
 
-    if @review.update_attributes(movie_params)
+    if @review.save(movie_params)
       flash[:notice] = 'Movie successfully updated.'
       redirect_to movie_review_path(@movie)
     else
