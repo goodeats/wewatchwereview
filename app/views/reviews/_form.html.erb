@@ -10,29 +10,29 @@
   </div>
 
 
+
+  <div class="" data-toggle="buttons-radio">
+    <%= f.label :rating %><br>
+    <%= f.radio_button :rating, '1', :id=>"first" %>
+    <label for="first" class="">1</label>
+
+    <%= f.radio_button :rating, '2', :id=>"second" %>
+    <label for="second" class="">2</label>
+
+    <%= f.radio_button :rating, '3', :id=>"third" %>
+    <label for="third" class="">3</label>
+
+    <%= f.radio_button :rating, '4', :id=>"fourth" %>
+    <label for="fourth" class="">4</label>
+
+    <%= f.radio_button :rating, '5', :id=>"fifth" %>
+    <label for="fifth" class="">5</label>
+  </div>
+
+
+
   <p>
-    <div class="btn-group" data-toggle="buttons-radio">
-      <%= f.label :rating %><br>
-      <%= f.radio_button :rating, '1', :id=>"first" %>
-      <label for="first" class="btn btn-primary">1</label>
-
-      <%= f.radio_button :rating, '2', :id=>"second" %>
-      <label for="second" class="btn btn-primary">2</label>
-
-      <%= f.radio_button :rating, '3', :id=>"third" %>
-      <label for="third" class="btn btn-primary">3</label>
-
-      <%= f.radio_button :rating, '4', :id=>"fourth" %>
-      <label for="fourth" class="btn btn-primary">4</label>
-
-      <%= f.radio_button :rating, '5', :id=>"fifth" %>
-      <label for="fifth" class="btn btn-primary">5</label>
-    </div>
-  </p>
-
-
-  <p>
-    <%= f.label "See this movie if..." %><br>
+    <%= f.label "See this movie if:" %><br>
     <%= f.text_area :recommendation %>
   </p>
   <p>

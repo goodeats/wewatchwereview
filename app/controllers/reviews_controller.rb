@@ -1,4 +1,3 @@
-require 'byebug'
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
@@ -37,7 +36,6 @@ class ReviewsController < ApplicationController
   def edit
     @movie = Movie.find(params[:movie_id])
     review = @movie.reviews.create(review_params)
-    binding.byebug
   end
 
   def update
