@@ -8,7 +8,7 @@ There are standard CRUD actions that still need to be built out, but features li
 
 The push to production in Heroku is not currently working, but I intend to work longer on that after I do some more code-based house cleaning.
 
-Feel free to reach out to me at patrick.h.needham@gmail.com if you have any questions.
+Feel free to reach out to me at :: mailto:patrick.h.needham@gmail.com if you have any questions.
 
 Thanks,
 
