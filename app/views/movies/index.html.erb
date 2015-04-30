@@ -1,22 +1,18 @@
 <%= flash[:notice] %>
-<div id="pins">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <div class="panel-title">
-        <h1>Movies Index</h1>
-      </div>
-    </div>
-    <div class="panel-body">
-      <div>
-        <% @movies.each do |movie| %>
-          <div class="form-group" class="divider">
-            <p><%= movie.title %></p>
-            <p><%= link_to image_tag(movie.poster), movie %></p>
-            <p><%= movie.rotten_tomatoes_score %></p>
-            <p><%= movie.genre %></p>
-          </div>
-        <% end %>
-      </div>
-    </div>
+<div class="panel-title">
+  <h1>Movies Index</h1>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <% @movies.each do |movie| %>
+    <h3 class="panel-title"><%= movie.title %></h3>
+  </div>
+  <div class="panel-body">
+      <p><%= link_to image_tag(movie.poster), movie %></p>
+      <p><%= movie.rotten_tomatoes_score %></p>
+      <p><%= movie.genre %></p>
+    <% end %>
   </div>
 </div>

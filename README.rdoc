@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This was my first project in General Assembly. This is a Ruby on Rails web app that uses erb files for the views.
 
-Things you may want to cover:
+It's a bit funny looking back at this project and the growth in ability I've had even weeks later. This will surely be a project to continue once I have more time to go back to it.
 
-* Ruby version
+There are standard CRUD actions that still need to be built out, but features like adding a movie to be reviewed on the site and creating reviews are working.
 
-* System dependencies
+The push to production in Heroku is not currently working, but I intend to work longer on that after I do some more code-based house cleaning.
 
-* Configuration
+Feel free to reach out to me at patrick.h.needham@gmail.com if you have any questions.
 
-* Database creation
+Thanks,
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Pat
